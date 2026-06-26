@@ -69,6 +69,6 @@ Smart-Canteen-System/
 
 Currently under development.
 
-## 📄 License
+## 📚 Academic Project
 
-This project is developed for educational purposes as part of the ISD Lab course.
+This project was developed as part of the ISD Lab course at university.
