@@ -1,0 +1,45 @@
+# =========================
+# Environment Files
+# =========================
+.env
+.env.local
+
+# =========================
+# Composer Dependencies
+# =========================
+vendor/
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# Cache Files
+# =========================
+cache/
+tmp/
+
+# =========================
+# User Uploads (Optional)
+# Uncomment if uploaded files shouldn't be tracked
+# uploads/
+
+# =========================
+# IDE Files
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# Operating System Files
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# Temporary Files
+# =========================
+*.tmp
+*.swp
