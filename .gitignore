@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.log
 .DS_Store
 .env
@@ -22,3 +23,50 @@
 Homestead.json
 Homestead.yaml
 Thumbs.db
+=======
+# =========================
+# Environment Files
+# =========================
+.env
+.env.local
+
+# =========================
+# Composer Dependencies
+# =========================
+vendor/
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# Cache Files
+# =========================
+cache/
+tmp/
+
+# =========================
+# User Uploads (Optional)
+# Uncomment if uploaded files shouldn't be tracked
+# uploads/
+
+# =========================
+# IDE Files
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# Operating System Files
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# Temporary Files
+# =========================
+*.tmp
+*.swp
+>>>>>>> 370f1b4a30408de6daf29da56d8c90b856f8bb32
