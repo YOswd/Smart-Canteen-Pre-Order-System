@@ -53,8 +53,8 @@ Smart-Canteen-System/
 | Name | Role |
 |------|------|
 | Yasar Wajih | Scrum Master |
-| Member 2 | Developer |
-| Member 3 | Developer |
+| Muttakin Rahman Shoccho | Developer 1 |
+| Abida Alam Riti | Developer 2 |
 
 ## 🚀 Installation
 
