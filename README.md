@@ -72,4 +72,3 @@ Currently under development.
 ## 📚 Academic Project
 
 This project was developed as part of the ISD Lab course at university.
->>>>>>> 370f1b4a30408de6daf29da56d8c90b856f8bb32
