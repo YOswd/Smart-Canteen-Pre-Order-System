@@ -4,13 +4,21 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
-Route::get('/register', [AuthController::class, 'showRegister']);
+// Registration
+Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
 
-Route::get('/login', [AuthController::class, 'showLogin']);
+// Login
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 
-Route::post('/logout', [AuthController::class, 'logout']);
+// Logout
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+Route::view('/menu', 'food.menu');
+Route::view('/cart', 'cart.cart');
+Route::view('/my-orders', 'orders.my_orders');
