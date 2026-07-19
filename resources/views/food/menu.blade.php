@@ -37,26 +37,14 @@ class="card-img-top">
 
 </p>
 
-<form action="{{ route('cart.add') }}" method="POST">
-
-@csrf
-
-<input type="hidden"
-name="food_id"
-value="{{ $food->id }}">
-
-<button class="btn btn-success w-100">
-
-Add to Cart
-
-</button>
-
+<form action="{{ route('cart.add', $food->id) }}" method="POST">
+    @csrf
+    <button type="submit" class="btn btn-success w-100">
+        Add to Cart
+    </button>
 </form>
-
 </div>
-
 </div>
-
 </div>
 
 @endforeach
