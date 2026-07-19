@@ -26,12 +26,21 @@ Route::middleware('auth')->group(function () {
     Route::post('/cart/add/{food}', [CartController::class, 'add'])->name('cart.add');
     Route::post('/cart/remove/{food}', [CartController::class, 'remove'])->name('cart.remove');
     Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+    Route::post('/cart/checkout/{food}', [CartController::class, 'checkoutSingle'])->name('cart.checkout.single');
+
+    // User Orders
+    Route::get('/my-orders', [OrderController::class, 'index'])->name('my-orders');
+});
+
+// Admin routes
+Route::middleware(['auth', function ($request, $next) {
+    if (auth()->user()->role !== 'admin') {
+        abort(403, 'Unauthorized action.');
+    }
+    return $next($request);
+}])->group(function () {
+    Route::get('/manage-orders', [OrderController::class, 'manage'])->name('admin.orders');
+    Route::patch('/orders/{order}/status', [OrderController::class, 'updateStatus'])->name('orders.status');
 });
 
 Route::get('/menu', [FoodController::class, 'menu'])->name('menu');
-
-Route::get('/my-orders', [OrderController::class, 'index'])
-    ->name('my-orders');
-
-Route::patch('/orders/{order}/status', [OrderController::class, 'updateStatus'])
-    ->name('orders.status');
