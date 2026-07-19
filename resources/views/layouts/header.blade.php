@@ -26,22 +26,36 @@
                     <a class="nav-link" href="/menu">Menu</a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="/cart">Cart</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/my-orders">My Orders</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/register">Register</a>
-                </li>
-
+                @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Register</a>
+                    </li>
+                @else
+                    @if(auth()->user()->role === 'admin')
+                        <li class="nav-item">
+                            <a class="nav-link" href="/manage-food">Manage Food</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/manage-orders">Manage Orders</a>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cart">Cart</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/my-orders">My Orders</a>
+                        </li>
+                    @endif
+                    <li class="nav-item">
+                        <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                            @csrf
+                            <button type="submit" class="btn btn-link nav-link" style="text-decoration: none;">Logout</button>
+                        </form>
+                    </li>
+                @endguest
             </ul>
 
         </div>

@@ -33,23 +33,9 @@ Route::middleware('auth')->group(function () {
 });
 
 // Admin routes
-Route::middleware(['auth', function ($request, $next) {
-    if (auth()->user()->role !== 'admin') {
-        abort(403, 'Unauthorized action.');
-    }
-    return $next($request);
-}])->group(function () {
+Route::middleware(['auth', \App\Http\Middleware\AdminMiddleware::class])->group(function () {
     Route::get('/manage-orders', [OrderController::class, 'manage'])->name('admin.orders');
     Route::patch('/orders/{order}/status', [OrderController::class, 'updateStatus'])->name('orders.status');
-});
-
-// Admin routes
-Route::middleware(['auth', function ($request, $next) {
-    if (auth()->user()->role !== 'admin') {
-        abort(403, 'Unauthorized action.');
-    }
-    return $next($request);
-}])->group(function () {
     Route::resource('manage-food', FoodController::class)->except(['show']);
 });
 
