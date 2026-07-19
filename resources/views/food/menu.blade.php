@@ -3,6 +3,8 @@ resources/views/food/menu.blade.php,
 
 @section('content')
 
+{{-- Display food menu with search functionality and allow users to add items to cart --}}
+
 <form action="{{ route('menu') }}" method="GET" class="mb-4">
     <div class="input-group">
         <input
