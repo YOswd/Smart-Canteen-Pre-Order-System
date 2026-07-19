@@ -6,6 +6,8 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\OrderController;
 
+// Define all application routes including authentication, menu, cart, and order management routes
+
 Route::get('/', function () {
     return view('index');
 });
