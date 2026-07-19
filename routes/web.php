@@ -28,6 +28,16 @@ Route::middleware('auth')->group(function () {
     Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 });
 
+// Admin routes
+Route::middleware(['auth', function ($request, $next) {
+    if (auth()->user()->role !== 'admin') {
+        abort(403, 'Unauthorized action.');
+    }
+    return $next($request);
+}])->group(function () {
+    Route::resource('manage-food', FoodController::class)->except(['show']);
+});
+
 Route::get('/menu', [FoodController::class, 'menu'])->name('menu');
 
 Route::get('/my-orders', [OrderController::class, 'index'])
