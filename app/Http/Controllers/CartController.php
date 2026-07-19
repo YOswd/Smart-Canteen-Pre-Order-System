@@ -7,6 +7,7 @@ use App\Models\Food;
 
 class CartController extends Controller
 {
+    // Handles cart operations including adding, removing, and checking out food items
     public function index()
     {
         $cart = session()->get('cart', []);
