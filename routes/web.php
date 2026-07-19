@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\OrderController;
 
 Route::get('/', function () {
     return view('index');
@@ -24,8 +25,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     Route::post('/cart/add/{food}', [CartController::class, 'add'])->name('cart.add');
     Route::post('/cart/remove/{food}', [CartController::class, 'remove'])->name('cart.remove');
+    Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 });
 
 Route::get('/menu', [FoodController::class, 'menu'])->name('menu');
 
-Route::view('/my-orders', 'orders.my_orders');
+Route::get('/my-orders', [OrderController::class, 'index'])
+    ->name('my-orders');
+
+Route::patch('/orders/{order}/status', [OrderController::class, 'updateStatus'])
+    ->name('orders.status');
