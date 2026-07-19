@@ -1,4 +1,3 @@
-resources/views/food/menu.blade.php,
 @extends('layouts.app')
 
 @section('content')
